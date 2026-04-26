@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/toy3d_sensory_store.html" }
-  ],
   "headers": [
     {
       "source": "/(.*)",
