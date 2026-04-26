@@ -84,3 +84,5 @@ renderTabs();
 renderCatalog();
 bindLiveValidation();
 bindContactMasks();
+initHeroCanvas();
+initCardTilt();
