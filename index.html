@@ -33,60 +33,77 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
+<!-- ══════════════════════════════════════════
+     HERO — port do hero-section-5 (21st.dev / Tailus)
+     Vídeo de fundo · texto sobreposto · pill buttons
+══════════════════════════════════════════ -->
+<section class="h5" id="inicio">
 
-  <!-- Spotlight SVG — Aceternity port (vanilla) -->
-  <svg class="hero-spotlight" aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3787 2842" fill="none">
-    <g filter="url(#spotfilter)">
-      <ellipse cx="1924.71" cy="273.501" rx="1924.71" ry="273.501"
-        transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
-        fill="white" fill-opacity="0.21"/>
-    </g>
-    <defs>
-      <filter id="spotfilter" x="0.860352" y="0.838989"
-        width="3785.16" height="2840.26"
-        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-        <feGaussianBlur stdDeviation="151" result="effect1_foreground"/>
-      </filter>
-    </defs>
-  </svg>
+  <!-- Vídeo de fundo (DNA / partículas — Tailus CDN) -->
+  <div class="h5-video-box" aria-hidden="true">
+    <video class="h5-video" autoplay loop muted playsinline>
+      <source src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477" type="video/mp4">
+    </video>
+  </div>
 
-  <!-- Subtle grid overlay -->
-  <div class="hero-grid" aria-hidden="true"></div>
-
-  <!-- 2-column layout -->
-  <div class="hero-inner">
-
-    <!-- Left: copy -->
-    <div class="hero-left">
-      <div class="hero-badge">🌱 Bem-estar sensorial</div>
-      <h1>Brinquedos 3D que<br><span>acalmam</span> e encantam</h1>
-      <p class="hero-desc">Peças únicas impressas em 3D, desenvolvidas para estimular os sentidos, aliviar ansiedade e trazer leveza ao dia a dia. Para crianças, adolescentes e adultos.</p>
-      <div class="hero-btns">
-        <a href="#produtos" class="btn-primary">🛍️ Ver produtos</a>
-        <a href="#sobre" class="btn-secondary">Saiba mais</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">+500</div><div class="stat-lbl">pedidos</div></div>
-        <div class="stat"><div class="stat-num">4.9★</div><div class="stat-lbl">avaliação</div></div>
-        <div class="stat"><div class="stat-num">8 SKUs</div><div class="stat-lbl">produtos</div></div>
-        <div class="stat"><div class="stat-num">5d</div><div class="stat-lbl">entrega</div></div>
+  <!-- Conteúdo sobreposto -->
+  <div class="h5-body">
+    <div class="h5-text">
+      <h1 class="h5-title">
+        Brinquedos que <span>acalmam</span>,<br>encantam e transformam
+      </h1>
+      <p class="h5-desc">
+        Peças únicas impressas em 3D, desenvolvidas para estimular os sentidos,
+        aliviar ansiedade e trazer leveza ao dia a dia.
+        Para crianças, adolescentes e adultos.
+      </p>
+      <div class="h5-btns">
+        <a href="#produtos" class="h5-btn-primary">
+          Ver produtos
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contato" class="h5-btn-ghost">Pedir orçamento</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Right: Spline 3D scene -->
-    <div class="hero-right">
-      <div class="spline-loader" id="splineLoader">
-        <div class="spline-ring"></div>
-        <span>Carregando cena 3D…</span>
-      </div>
-      <canvas id="splineCanvas"></canvas>
+<!-- ══════════════════════════════════════════
+     BRANDS SLIDER — port do InfiniteSlider + ProgressiveBlur
+══════════════════════════════════════════ -->
+<section class="brands-sec">
+  <div class="brands-inner">
+
+    <div class="brands-label">
+      <p>Referências de<br>qualidade</p>
     </div>
 
+    <div class="brands-outer">
+      <!-- Track duplicado para loop contínuo -->
+      <div class="brands-track" id="brandsTrack">
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/nvidia.svg"      alt="Nvidia"       height="20"></div>
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/column.svg"      alt="Column"       height="16"></div>
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/github.svg"      alt="GitHub"       height="16"></div>
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/nike.svg"        alt="Nike"         height="20"></div>
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg" alt="LemonSqueezy" height="20"></div>
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/laravel.svg"     alt="Laravel"      height="16"></div>
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/lilly.svg"       alt="Lilly"        height="28"></div>
+        <div class="brand-img"><img src="https://html.tailus.io/blocks/customers/openai.svg"      alt="OpenAI"       height="24"></div>
+        <!-- Segunda cópia para loop contínuo sem salto -->
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/nvidia.svg"      alt="" height="20"></div>
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/column.svg"      alt="" height="16"></div>
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/github.svg"      alt="" height="16"></div>
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/nike.svg"        alt="" height="20"></div>
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg" alt="" height="20"></div>
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/laravel.svg"     alt="" height="16"></div>
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/lilly.svg"       alt="" height="28"></div>
+        <div class="brand-img" aria-hidden="true"><img src="https://html.tailus.io/blocks/customers/openai.svg"      alt="" height="24"></div>
+      </div>
+
+      <!-- Progressive blur (port do ProgressiveBlur — backdrop-filter + mask) -->
+      <div class="pblur pblur-l" aria-hidden="true"></div>
+      <div class="pblur pblur-r" aria-hidden="true"></div>
+    </div>
   </div>
 </section>
 

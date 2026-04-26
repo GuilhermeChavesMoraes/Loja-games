@@ -48,10 +48,15 @@ nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
   padding:0 32px; height:60px;
-  background:rgba(13,13,24,0.85);
-  backdrop-filter:blur(24px) saturate(1.8);
-  border-bottom:1px solid var(--border);
-  transition:background .3s, border-color .3s;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom:1px solid transparent;
+  transition:background .35s, backdrop-filter .35s, border-color .35s;
+}
+nav.nav-scrolled {
+  background: rgba(5,5,9,0.72);
+  backdrop-filter: blur(20px) saturate(1.6);
+  border-bottom-color: var(--border);
 }
 .logo {
   font-family:'Baloo 2', cursive; font-size:1.55rem; font-weight:800;
@@ -114,159 +119,195 @@ nav {
 }
 .cart-count.bounce { animation:cartBounce .55s var(--spring); }
 
-/* ═══ HERO — 2-column Spline layout (21st.dev) ═══ */
-.hero {
-  min-height:100vh; position:relative; overflow:hidden;
-  background:#050509;   /* near-black like the demo card */
-  display:block;
+/* ═══════════════════════════════════════════
+   HERO-5 — port do hero-section-5 (Tailus / 21st.dev)
+   Vídeo de fundo · texto sobreposto · pill buttons
+═══════════════════════════════════════════ */
+.h5 {
+  position: relative;
+  /* py-24 pb-36 pt-72 traduzidos */
+  padding: 96px 0 144px;
+  overflow: hidden;
+  background: var(--dark4);
 }
 
-/* Subtle dot-grid overlay */
-.hero-grid {
-  position:absolute; inset:0; z-index:0; pointer-events:none;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
-  background-size:32px 32px;
-  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-          mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+/* Caixa de vídeo — absolute inset-1 rounded-[3rem] border */
+.h5-video-box {
+  position: absolute;
+  inset: 4px;
+  border-radius: 48px;               /* lg:rounded-[3rem] */
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
 }
 
-/* Aceternity spotlight SVG */
-.hero-spotlight {
-  position:absolute; z-index:1; pointer-events:none;
-  height:169%; width:138%;
-  top:0; left:0;
-  opacity:0;
-  animation:spotlightIn 2.5s ease .6s 1 forwards;
+/* Vídeo — dark:opacity-35 desktop dark:lg:opacity-75 dark:invert-0 */
+.h5-video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .38;                       /* mobile dark */
 }
-@keyframes spotlightIn {
-  0%   { opacity:0; transform:translate(-72%,-62%) skewX(-8deg); }
-  100% { opacity:1; transform:translate(-50%,-40%) skewX(-5deg); }
+@media (min-width:1024px) { .h5-video { opacity: .72; } }
+
+/* Conteúdo sobreposto — relative z-10 max-w-7xl */
+.h5-body {
+  position: relative; z-index: 10;
+  max-width: 1280px; margin: 0 auto;
+  padding: 210px 48px 0;             /* lg:pt-72 ≈ 288px; reduzido para caber mais conteúdo */
 }
 
-/* Inner flex row */
-.hero-inner {
-  position:relative; z-index:5;
-  display:flex; align-items:center;
-  min-height:100vh;
-  max-width:1400px; margin:0 auto;
-  padding:80px 48px 60px;
-  gap:0;
+/* Texto alinhado à esquerda — lg:ml-0 lg:text-left */
+.h5-text {
+  max-width: 640px;
 }
 
-/* Left column: copy */
-.hero-left {
-  flex:1; max-width:520px;
-  display:flex; flex-direction:column; align-items:flex-start;
-  padding-right:32px;
+/* h1 — text-balance text-5xl/6xl/7xl, vertical gradient */
+.h5-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+  font-weight: 800; line-height: 1.1;
+  margin-top: 0; margin-bottom: 24px;
+  background: linear-gradient(180deg, #fafafa 0%, #a1a1aa 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: h5Up .8s var(--ease-out) .15s both;
+}
+.h5-title span {                      /* accent mint → lavender */
+  background: linear-gradient(135deg, var(--mint), var(--lavender));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.hero-badge {
-  display:inline-flex; align-items:center; gap:6px;
-  background:rgba(94,207,168,.08); border:1px solid rgba(94,207,168,.28); color:var(--mint);
-  border-radius:50px; padding:5px 16px; font-size:.78rem; font-weight:700;
-  margin-bottom:24px; letter-spacing:.06em; text-transform:uppercase;
-  animation:badgePop .7s var(--spring) .3s both;
-}
-@keyframes badgePop { from{opacity:0;transform:scale(.75) translateY(12px)} to{opacity:1;transform:scale(1) translateY(0)} }
-
-.hero h1 {
-  font-family:'Baloo 2',cursive; font-size:clamp(2.2rem,4.5vw,3.8rem);
-  font-weight:800; line-height:1.1; margin-bottom:20px;
-  /* White → neutral-400 vertical gradient (demo style) */
-  background:linear-gradient(180deg, #f5f5f5 0%, #a1a1aa 100%);
-  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-  animation:slideUp .8s var(--ease-out) .4s both;
-}
-.hero h1 span {
-  /* accent: mint → lavender */
-  background:linear-gradient(135deg, var(--mint), var(--lavender));
-  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+/* p — text-lg text-balance */
+.h5-desc {
+  font-size: 1.1rem; line-height: 1.75; color: #a1a1aa;
+  margin-bottom: 40px; max-width: 560px;
+  animation: h5Up .8s var(--ease-out) .28s both;
 }
 
-.hero-desc {
-  color:#a1a1aa; font-size:1rem; line-height:1.75; margin-bottom:36px;
-  animation:slideUp .8s var(--ease-out) .5s both;
-  max-width:440px;
+/* Botões — flex gap-2 flex-col sm:flex-row */
+.h5-btns {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  animation: h5Up .8s var(--ease-out) .4s both;
 }
+@keyframes h5Up { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
-.hero-btns {
-  display:flex; gap:14px; flex-wrap:wrap;
-  animation:slideUp .8s var(--ease-out) .6s both;
+/* h5-btn-primary — h-12 rounded-full pl-5 pr-3 text-base bg-white text-black */
+.h5-btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 48px; padding: 0 14px 0 22px;
+  border-radius: 50px;
+  background: var(--text); color: var(--dark4);
+  font-weight: 800; font-size: 1rem;
+  text-decoration: none;
+  transition: background .2s var(--spring), transform .2s var(--spring), box-shadow .2s;
 }
-@keyframes slideUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+.h5-btn-primary:hover { background:#fff; transform:translateY(-2px); box-shadow:0 10px 28px rgba(255,255,255,.12); }
+.h5-btn-primary:active { transform:scale(.96); }
 
-.hero-stats {
-  display:flex; gap:28px; margin-top:48px;
-  animation:slideUp .8s var(--ease-out) .7s both;
+/* h5-btn-ghost — h-12 rounded-full px-5 hover:bg-white/5 */
+.h5-btn-ghost {
+  display: inline-flex; align-items: center;
+  height: 48px; padding: 0 22px;
+  border-radius: 50px; background: transparent;
+  color: var(--text); font-weight: 700; font-size: 1rem;
+  text-decoration: none;
+  transition: background .2s;
 }
-.stat { text-align:left; }
-.stat-num {
-  font-family:'Baloo 2',cursive; font-size:1.55rem; font-weight:800;
-  background:linear-gradient(135deg, var(--mint), var(--lavender));
-  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-}
-.stat-lbl {
-  color:var(--subtle); font-size:.74rem; font-weight:700;
-  text-transform:uppercase; letter-spacing:.06em; margin-top:1px;
-}
-
-/* Right column: Spline scene */
-.hero-right {
-  flex:1; position:relative;
-  height:100vh; max-height:720px; min-height:400px;
-}
-
-#splineCanvas {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  display:block;
-}
-
-/* Loading state */
-.spline-loader {
-  position:absolute; inset:0; z-index:2;
-  display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:16px;
-  color:var(--subtle); font-size:.82rem; font-weight:600;
-  transition:opacity .5s;
-}
-.spline-loader.hidden { opacity:0; pointer-events:none; }
-.spline-ring {
-  width:40px; height:40px;
-  border:2px solid rgba(94,207,168,.2);
-  border-top-color:var(--mint);
-  border-radius:50%;
-  animation:spin .8s linear infinite;
-}
-
-/* Fade-in mask on the right side so scene blends with dark bg */
-.hero-right::after {
-  content:''; position:absolute; inset:0; pointer-events:none; z-index:3;
-  background:
-    linear-gradient(to right,  #050509 0%, transparent 12%),
-    linear-gradient(to bottom, #050509 0%, transparent 10%, transparent 90%, #050509 100%);
-}
+.h5-btn-ghost:hover { background: rgba(255,255,255,.06); }
 
 /* ── Responsive ── */
 @media (max-width:900px) {
-  .hero-inner {
-    flex-direction:column;
-    padding:100px 28px 48px;
-    gap:32px;
-    min-height:auto;
-  }
-  .hero-left { max-width:100%; padding-right:0; align-items:center; text-align:center; }
-  .hero h1  { text-align:center; }
-  .hero-desc { text-align:center; max-width:100%; }
-  .hero-btns { justify-content:center; }
-  .hero-stats { justify-content:center; }
-  .hero-right { width:100%; height:50vw; max-height:360px; min-height:260px; }
-  .hero-right::after {
-    background:
-      linear-gradient(to bottom, transparent 80%, #050509 100%);
-  }
-  .hero-spotlight { width:200%; }
+  .h5 { padding: 80px 0 120px; }
+  .h5-body { padding: 160px 28px 0; }
+  .h5-text { max-width: 100%; }
+  .h5-title { font-size: clamp(2rem, 7vw, 3rem); }
+}
+@media (max-width:600px) {
+  .h5-body { padding: 120px 20px 0; }
+  .h5-video-box { border-radius: 20px; inset: 0; }
+  .h5-btns { flex-direction: column; align-items: flex-start; }
+}
+
+/* ═══════════════════════════════════════════
+   BRANDS SLIDER — port do InfiniteSlider + ProgressiveBlur
+═══════════════════════════════════════════ */
+.brands-sec {
+  background: var(--dark4);
+  padding-bottom: 8px;
+}
+
+.brands-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center;
+  padding: 0 24px;
+}
+
+/* "Powering the best teams" label */
+.brands-label {
+  flex-shrink: 0; width: 176px;  /* md:max-w-44 */
+  border-right: 1px solid var(--border);
+  padding-right: 24px;
+}
+.brands-label p {
+  text-align: right;
+  font-size: .82rem; line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Slider wrapper — md:w-[calc(100%-11rem)] */
+.brands-outer {
+  position: relative; flex: 1; overflow: hidden;
+  padding: 28px 0;
+}
+
+/* Track (duplicado × 2) — CSS-only infinite scroll */
+.brands-track {
+  display: flex; width: max-content;
+  align-items: center; gap: 112px;  /* gap-28 */
+  animation: brandsScroll 40s linear infinite;
+}
+.brands-track:hover { animation-play-state: paused; }
+@keyframes brandsScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }  /* -50% pois o conteúdo está duplicado */
+}
+
+.brand-img { display: flex; align-items: center; flex-shrink: 0; }
+.brand-img img {
+  /* dark:invert — sempre dark no nosso caso */
+  filter: invert(1) brightness(0.7);
+  opacity: .65; max-width: 120px; object-fit: contain;
+  transition: opacity .2s, filter .2s;
+}
+.brand-img:hover img { opacity: 1; filter: invert(1) brightness(1); }
+
+/* Progressive blur — port do ProgressiveBlur (backdrop-filter + mask) */
+.pblur {
+  position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+  pointer-events: none;
+}
+.pblur-l {
+  left: 0;
+  background: linear-gradient(to right, var(--dark4), transparent);
+  /* Múltiplas camadas de blur progressivo (layers 1-4) */
+  -webkit-mask: linear-gradient(to right, black 20%, transparent 100%);
+          mask: linear-gradient(to right, black 20%, transparent 100%);
+  backdrop-filter: blur(2px);
+}
+.pblur-r {
+  right: 0;
+  background: linear-gradient(to left, var(--dark4), transparent);
+  -webkit-mask: linear-gradient(to left, black 20%, transparent 100%);
+          mask: linear-gradient(to left, black 20%, transparent 100%);
+  backdrop-filter: blur(2px);
+}
+
+/* Responsive brands */
+@media (max-width:768px) {
+  .brands-inner { flex-direction: column; gap: 0; }
+  .brands-label { width: 100%; border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0 12px; text-align: center; }
+  .brands-label p { text-align: center; }
+  .brands-outer { width: 100%; padding: 20px 0; }
 }
 
 /* ═══ BUTTONS ═══ */

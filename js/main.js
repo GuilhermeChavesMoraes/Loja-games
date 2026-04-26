@@ -78,11 +78,20 @@ document.querySelectorAll(".nav-links a").forEach(a => {
   });
 });
 
+/* ── Navbar scroll-glass (HeroHeader behaviour) ── */
+function initNavScroll() {
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+  const update = () => nav.classList.toggle('nav-scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
 /* ── INIT ── */
 renderDestaques();
 renderTabs();
 renderCatalog();
 bindLiveValidation();
 bindContactMasks();
-initSpline();      /* Spline 3D hero background */
-initCardTilt();    /* 3D perspective tilt on product cards */
+initNavScroll();   /* nav glass on scroll */
+initCardTilt();    /* 3D tilt on product cards */
