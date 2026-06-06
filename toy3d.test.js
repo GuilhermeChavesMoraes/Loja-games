@@ -1,13 +1,15 @@
 /**
- * toy3d.test.js — SensoPrint Test Suite
- * Compatível com: Vitest, Jest, ou browser console
+ * toy3d.test.js — Suíte de Testes da SensoPrint
+ * Arquivo preparado para fins didáticos. 
+ * Totalmente compatível com frameworks profissionais (Vitest, Jest) ou pelo console do navegador.
  *
- * Rodar com Vitest:  npx vitest run toy3d.test.js
- * Rodar com Jest:    npx jest toy3d.test.js
+ * Para rodar com Vitest:  npx vitest run toy3d.test.js
+ * Para rodar com Jest:    npx jest toy3d.test.js
  */
 
 /* ═══════════════════════════════════════════
-   MINI TEST RUNNER (fallback para browser)
+   MINI EXECUTOR DE TESTES (fallback para navegador)
+   Permite que os alunos testem a lógica do código diretamente na tela, sem depender do NodeJS.
 ═══════════════════════════════════════════ */
 const isNode = typeof process !== "undefined";
 
@@ -49,11 +51,12 @@ function expect(val) {
 }
 
 /* ═══════════════════════════════════════════
-   PURE FUNCTIONS (mirrors of toy3d_sensory_store.html)
-   Mantidas aqui para que os testes não dependam do DOM.
+   FUNÇÕES PURAS (cópias simplificadas da lógica de produção)
+   Elas são reproduzidas neste arquivo para garantir que os testes rodem em um ambiente isolado,
+   testando unicamente a matemática e a lógica, sem depender de manipular tags HTML (DOM).
 ═══════════════════════════════════════════ */
 
-// ── Produtos fixture ──
+// ── Base de dados falsa (Fixture) projetada exclusivamente para os testes ──
 const PRODUCTS = [
   { id:1, emoji:"🌀", name:"Pop Fidget Hexagonal",      price:39.90, cat:"fidget" },
   { id:2, emoji:"🧊", name:"Cubo Infinito Antiestresse", price:49.90, cat:"cubo" },
@@ -61,7 +64,7 @@ const PRODUCTS = [
   { id:8, emoji:"🌿", name:"Kit Zen Completo",           price:99.90, cat:"kit" },
 ];
 
-// ── Cart ──
+// ── Lógica Central do Carrinho de Compras ──
 function makeCart() { return []; }
 
 function cartAdd(cart, id) {
@@ -89,10 +92,10 @@ function cartCount(cart) {
   return cart.reduce((s, i) => s + i.qty, 0);
 }
 
-// ── Validators ──
+// ── Regras de Validação dos Formulários ──
 const validators = {
   nome:  v => v.trim().length >= 3  ? null : "Nome deve ter ao menos 3 caracteres",
-  tel:   v => /^\(\d{2}\)\s\d\s\d{4}-\d{4}$/.test(v) ? null : "Formato: (61) 9 1234-5678",
+  tel:   v => /^\(\d{2}\)\s?\d?\s?\d{4}-\d{4}$/.test(v.trim()) ? null : "Formato: (61) 91234-5678",
   email: v => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "E-mail inválido",
   cep:   v => /^\d{5}-?\d{3}$/.test(v.trim()) ? null : "CEP inválido",
   rua:   v => v.trim().length >= 4  ? null : "Informe a rua / avenida",
@@ -102,7 +105,7 @@ const validators = {
   uf:    v => v.trim().length === 2 ? null : "Selecione o estado",
 };
 
-// ── WhatsApp payload ──
+// ── Geração Matemática e Visual da Mensagem para o WhatsApp ──
 function buildCheckoutPayload(cart, checkout) {
   const { nome, tel, email, cep, rua, numero, complemento, bairro, cidade, uf, pagamento, orderId } = checkout;
   const subtotal = cartTotal(cart);
@@ -133,7 +136,7 @@ function genOrderId(seed) {
 }
 
 /* ═══════════════════════════════════════════
-   1. TESTES UNITÁRIOS — CART
+   1. TESTES UNITÁRIOS — LÓGICA DO CARRINHO DE COMPRAS
 ═══════════════════════════════════════════ */
 describe("Cart — addToCart", () => {
   test("adiciona novo item com qty:1", () => {
@@ -244,7 +247,7 @@ describe("Cart — cartTotal e cartCount", () => {
 });
 
 /* ═══════════════════════════════════════════
-   2. TESTES UNITÁRIOS — VALIDATORS
+   2. TESTES UNITÁRIOS — VALIDADORES DE ENTRADA (REGEX E TIPOS)
 ═══════════════════════════════════════════ */
 describe("Validator — nome", () => {
   test("aceita nome válido", ()  => expect(validators.nome("Bruno Melo")).toBeNull());
@@ -256,7 +259,7 @@ describe("Validator — nome", () => {
 
 describe("Validator — tel (WhatsApp)", () => {
   test("aceita (61) 9 1234-5678", () => expect(validators.tel("(61) 9 1234-5678")).toBeNull());
-  test("aceita (11) 9 9999-8888", () => expect(validators.tel("(11) 9 9999-8888")).toBeNull());
+  test("aceita (11) 99999-8888", () => expect(validators.tel("(11) 99999-8888")).toBeNull());
   test("rejeita número sem DDD",  () => expect(validators.tel("9 1234-5678")).not.toBeNull());
   test("rejeita formato incorreto", () => expect(validators.tel("61999999999")).not.toBeNull());
   test("rejeita string vazia",    () => expect(validators.tel("")).not.toBeNull());
@@ -291,7 +294,7 @@ describe("Validator — endereço", () => {
 });
 
 /* ═══════════════════════════════════════════
-   3. TESTES UNITÁRIOS — WHATSAPP PAYLOAD
+   3. TESTES UNITÁRIOS — GERAÇÃO DA MENSAGEM FINAL PARA O WHATSAPP
 ═══════════════════════════════════════════ */
 const CHECKOUT_BASE = {
   nome: "Bruno Melo", tel: "(61) 9 4319-6166", email: "bruno@email.com",
@@ -374,7 +377,7 @@ describe("genOrderId", () => {
 });
 
 /* ═══════════════════════════════════════════
-   4. TESTES DE INTEGRAÇÃO — FLUXO DE CHECKOUT
+   4. TESTES DE INTEGRAÇÃO — SIMULAÇÃO DO FLUXO DE COMPRA DO USUÁRIO
 ═══════════════════════════════════════════ */
 describe("Checkout flow — simulação de estado", () => {
   test("carrinho vazio não gera payload útil", () => {
@@ -445,9 +448,9 @@ describe("Checkout flow — simulação de estado", () => {
 });
 
 /* ═══════════════════════════════════════════
-   5. TESTES E2E — PLAYWRIGHT  (specs descritivos)
-   Para executar: npx playwright test
-   Arquivo: sensoprint.spec.ts
+   5. EXEMPLO DE TESTE END-TO-END (E2E) USANDO O PLAYWRIGHT
+   (Demonstração de como robôs testam sites navegando de verdade pelas telas).
+   Para executar num ambiente real precisaria do arquivo: sensoprint.spec.ts
 ═══════════════════════════════════════════ */
 
 /*
@@ -555,7 +558,7 @@ test.describe('SensoPrint — Fluxo de compra completo', () => {
 */
 
 /* ═══════════════════════════════════════════
-   RELATÓRIO FINAL (apenas para execução direta em Node.js)
+   RELATÓRIO DE TERMINAL (visível apenas para execução crua em NodeJS)
 ═══════════════════════════════════════════ */
 if (isNode) {
   const total = _pass + _fail;
@@ -570,7 +573,7 @@ if (isNode) {
   console.log("═".repeat(50));
 }
 
-// Exporta para Jest / Vitest
+// Exporta as funções para suportar suítes de testes complexas como Jest e Vitest
 if (typeof module !== "undefined") {
   module.exports = { cartAdd, cartRemove, cartChangeQty, cartTotal, cartCount, validators, buildCheckoutPayload, genOrderId };
 }

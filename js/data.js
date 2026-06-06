@@ -1,4 +1,8 @@
-const PHONE = "556194319166";
+/**
+ * Base de dados simulada (Mock) com as informações estruturais da loja,
+ * incluindo telefone de contato, produtos e categorias cadastradas.
+ */
+const PHONE = "5561999639758";
 
 const allProducts = [
   { id:1, emoji:"🌀", name:"Pop Fidget Hexagonal",      desc:"Textura suave com pop sensorial em cada bolha. Ideal para foco e alívio de tensão.", price:39.90, badge:"🔥 Mais vendido", stars:5, cat:"fidget" },

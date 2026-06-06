@@ -1,4 +1,6 @@
-/* ═══ DESIGN TOKENS ═══ */
+/* ═══ VARIÁVEIS GLOBAIS (DESIGN TOKENS) ═══
+   Mantém cores unificadas, curvas de animação e sombreamentos para
+   garantir consistência e facilitar trocas de tema pelo projeto. */
 :root {
   --mint:      #5ECFA8;
   --lavender:  #B8A9F5;
@@ -21,7 +23,9 @@
   --ease-in:   cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
-/* ═══ RESET ═══ */
+/* ═══ RESET E ESTILOS BÁSICOS ═══
+   Normaliza caixas e margens nativas dos navegadores para que a página 
+   renderize da mesma forma em qualquer dispositivo. */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
 body {
@@ -34,16 +38,16 @@ body {
 button, input, select, textarea { font-family:inherit; }
 a { text-decoration:none; }
 
-/* ── Scrollbar ── */
+/* ── Estilização da Barra de Rolagem (Scrollbar) ── */
 ::-webkit-scrollbar { width:6px; height:6px; }
 ::-webkit-scrollbar-track { background:transparent; }
 ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:99px; }
 ::-webkit-scrollbar-thumb:hover { background:var(--muted); }
 
-/* ── Focus ring (a11y) ── */
+/* ── Acessibilidade visual: Anel de foco (Navegação via teclado) ── */
 :focus-visible { outline:2px solid var(--mint); outline-offset:3px; border-radius:6px; }
 
-/* ═══ NAV ═══ */
+/* ═══ BARRA DE NAVEGAÇÃO SUPERIOR (NAVBAR) ═══ */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
@@ -79,7 +83,7 @@ nav.nav-scrolled {
 .nav-links a:hover { color:var(--text); }
 .nav-links a:hover::after { transform:scaleX(1); }
 
-/* Mobile hamburger */
+/* Menu expansível responsivo (Mobile Hamburger) */
 .nav-toggle {
   display:none; flex-direction:column; gap:5px; background:none; border:none;
   cursor:pointer; padding:6px; border-radius:8px;
@@ -95,7 +99,7 @@ nav.nav-scrolled {
 .nav-toggle.open span:nth-child(2) { opacity:0; width:0; }
 .nav-toggle.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
-/* Cart button */
+/* Botão flutuante indicativo do Carrinho de Compras */
 .cart-btn {
   background:linear-gradient(135deg, var(--mint), var(--lavender));
   border:none; border-radius:50px; padding:8px 18px;
@@ -120,8 +124,9 @@ nav.nav-scrolled {
 .cart-count.bounce { animation:cartBounce .55s var(--spring); }
 
 /* ═══════════════════════════════════════════
-   HERO-5 — port do hero-section-5 (Tailus / 21st.dev)
-   Vídeo de fundo · texto sobreposto · pill buttons
+   SEÇÃO HERO (DESTAQUE INICIAL)
+   Implementação baseada em padrões de design modernos (Tailus),
+   que combinam vídeo imersivo com chamadas tipográficas agressivas.
 ═══════════════════════════════════════════ */
 .h5 {
   position: relative;
@@ -131,7 +136,7 @@ nav.nav-scrolled {
   background: var(--dark4);
 }
 
-/* Caixa de vídeo — absolute inset-1 rounded-[3rem] border */
+/* Contêiner de restrição do vídeo para inserção de cantos arredondados e borda sutil */
 .h5-video-box {
   position: absolute;
   inset: 4px;
@@ -140,7 +145,7 @@ nav.nav-scrolled {
   border: 1px solid rgba(255,255,255,.06);
 }
 
-/* Vídeo — dark:opacity-35 desktop dark:lg:opacity-75 dark:invert-0 */
+/* Configuração direta da tag <video> com opacidade diferenciada no Desktop vs Mobile */
 .h5-video {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -148,19 +153,19 @@ nav.nav-scrolled {
 }
 @media (min-width:1024px) { .h5-video { opacity: .72; } }
 
-/* Conteúdo sobreposto — relative z-10 max-w-7xl */
+/* Engloba o texto sobrepondo-o no Eixo Z à frente do vídeo imersivo */
 .h5-body {
   position: relative; z-index: 10;
   max-width: 1280px; margin: 0 auto;
-  padding: 210px 48px 0;             /* lg:pt-72 ≈ 288px; reduzido para caber mais conteúdo */
+  padding: 140px 48px 0;             /* lg:pt-72 ≈ 288px; reduzido para caber mais conteúdo */
 }
 
-/* Texto alinhado à esquerda — lg:ml-0 lg:text-left */
+/* Caixa limitadora da quebra de linha do título na esquerda da tela */
 .h5-text {
   max-width: 640px;
 }
 
-/* h1 — text-balance text-5xl/6xl/7xl, vertical gradient */
+/* Título dinâmico principal (H1) preenchido em gradiente e animado (Fade Up) */
 .h5-title {
   font-family: 'Baloo 2', cursive;
   font-size: clamp(2.6rem, 5.5vw, 4.5rem);
@@ -171,27 +176,27 @@ nav.nav-scrolled {
   -webkit-text-fill-color: transparent;
   animation: h5Up .8s var(--ease-out) .15s both;
 }
-.h5-title span {                      /* accent mint → lavender */
+.h5-title span {                      /* Realce sutil: Verde Menta -> Lavanda */
   background: linear-gradient(135deg, var(--mint), var(--lavender));
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* p — text-lg text-balance */
+/* Parágrafo de descrição sob o título (Aparece sequencialmente graças ao "delay" CSS) */
 .h5-desc {
   font-size: 1.1rem; line-height: 1.75; color: #a1a1aa;
   margin-bottom: 40px; max-width: 560px;
   animation: h5Up .8s var(--ease-out) .28s both;
 }
 
-/* Botões — flex gap-2 flex-col sm:flex-row */
+/* Invólucro dos Call-to-Actions principais da seção */
 .h5-btns {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   animation: h5Up .8s var(--ease-out) .4s both;
 }
 @keyframes h5Up { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
-/* h5-btn-primary — h-12 rounded-full pl-5 pr-3 text-base bg-white text-black */
+/* Botão Estilo Pílula Sólido */
 .h5-btn-primary {
   display: inline-flex; align-items: center; gap: 6px;
   height: 48px; padding: 0 14px 0 22px;
@@ -204,7 +209,7 @@ nav.nav-scrolled {
 .h5-btn-primary:hover { background:#fff; transform:translateY(-2px); box-shadow:0 10px 28px rgba(255,255,255,.12); }
 .h5-btn-primary:active { transform:scale(.96); }
 
-/* h5-btn-ghost — h-12 rounded-full px-5 hover:bg-white/5 */
+/* Botão Fantasma (Apenas Contorno/Fundo Transparente) */
 .h5-btn-ghost {
   display: inline-flex; align-items: center;
   height: 48px; padding: 0 22px;
@@ -215,7 +220,7 @@ nav.nav-scrolled {
 }
 .h5-btn-ghost:hover { background: rgba(255,255,255,.06); }
 
-/* ── Responsive ── */
+/* ── Medidas adaptativas do Hero para Tablets e Celulares ── */
 @media (max-width:900px) {
   .h5 { padding: 80px 0 120px; }
   .h5-body { padding: 160px 28px 0; }
@@ -228,87 +233,7 @@ nav.nav-scrolled {
   .h5-btns { flex-direction: column; align-items: flex-start; }
 }
 
-/* ═══════════════════════════════════════════
-   BRANDS SLIDER — port do InfiniteSlider + ProgressiveBlur
-═══════════════════════════════════════════ */
-.brands-sec {
-  background: var(--dark4);
-  padding-bottom: 8px;
-}
-
-.brands-inner {
-  max-width: 1280px; margin: 0 auto;
-  display: flex; align-items: center;
-  padding: 0 24px;
-}
-
-/* "Powering the best teams" label */
-.brands-label {
-  flex-shrink: 0; width: 176px;  /* md:max-w-44 */
-  border-right: 1px solid var(--border);
-  padding-right: 24px;
-}
-.brands-label p {
-  text-align: right;
-  font-size: .82rem; line-height: 1.5;
-  color: var(--muted);
-}
-
-/* Slider wrapper — md:w-[calc(100%-11rem)] */
-.brands-outer {
-  position: relative; flex: 1; overflow: hidden;
-  padding: 28px 0;
-}
-
-/* Track (duplicado × 2) — CSS-only infinite scroll */
-.brands-track {
-  display: flex; width: max-content;
-  align-items: center; gap: 112px;  /* gap-28 */
-  animation: brandsScroll 40s linear infinite;
-}
-.brands-track:hover { animation-play-state: paused; }
-@keyframes brandsScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }  /* -50% pois o conteúdo está duplicado */
-}
-
-.brand-img { display: flex; align-items: center; flex-shrink: 0; }
-.brand-img img {
-  opacity: .6; max-width: 120px; object-fit: contain;
-  transition: opacity .2s;
-}
-.brand-img:hover img { opacity: 1; }
-
-/* Progressive blur — port do ProgressiveBlur (backdrop-filter + mask) */
-.pblur {
-  position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
-  pointer-events: none;
-}
-.pblur-l {
-  left: 0;
-  background: linear-gradient(to right, var(--dark4), transparent);
-  /* Múltiplas camadas de blur progressivo (layers 1-4) */
-  -webkit-mask: linear-gradient(to right, black 20%, transparent 100%);
-          mask: linear-gradient(to right, black 20%, transparent 100%);
-  backdrop-filter: blur(2px);
-}
-.pblur-r {
-  right: 0;
-  background: linear-gradient(to left, var(--dark4), transparent);
-  -webkit-mask: linear-gradient(to left, black 20%, transparent 100%);
-          mask: linear-gradient(to left, black 20%, transparent 100%);
-  backdrop-filter: blur(2px);
-}
-
-/* Responsive brands */
-@media (max-width:768px) {
-  .brands-inner { flex-direction: column; gap: 0; }
-  .brands-label { width: 100%; border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0 12px; text-align: center; }
-  .brands-label p { text-align: center; }
-  .brands-outer { width: 100%; padding: 20px 0; }
-}
-
-/* ═══ BUTTONS ═══ */
+/* ═══ DEFINIÇÕES UNIVERSAIS DE BOTÕES PARA O PROJETO ═══ */
 .btn-primary {
   background:linear-gradient(135deg, var(--mint), var(--lavender));
   border:none; border-radius:50px; padding:13px 30px;
@@ -327,7 +252,7 @@ nav.nav-scrolled {
 }
 .btn-secondary:hover { border-color:var(--mint); color:var(--mint); background:rgba(94,207,168,.05); }
 
-/* WhatsApp CTA — pulsing glow (21st.dev signature) */
+/* Botão Especial Focado no WhatsApp — Integra uma animação cíclica brilhante (Pulsing Glow) */
 .btn-whatsapp, .btn-checkout {
   position:relative; overflow:hidden;
   width:100%; background:linear-gradient(135deg, #25D366, #128C7E);
@@ -348,7 +273,7 @@ nav.nav-scrolled {
 .btn-whatsapp:active, .btn-checkout:active { transform:scale(.98); animation:none; }
 .btn-checkout:disabled { opacity:.4; cursor:not-allowed; transform:none !important; animation:none; }
 
-/* ═══ SECTIONS ═══ */
+/* ═══ ESPAÇAMENTOS E CABEÇALHOS BÁSICOS PARA TODAS AS SEÇÕES DA PÁGINA ═══ */
 section { padding:88px 32px; }
 .section-label {
   display:inline-block; background:rgba(94,207,168,.1); border:1px solid rgba(94,207,168,.25);
@@ -368,14 +293,14 @@ section { padding:88px 32px; }
 .section-header .section-sub { margin-inline:auto; }
 .container { max-width:1200px; margin:0 auto; }
 
-/* ═══ FEATURES ═══ */
+/* ═══ COMPONENTES DE DIFERENCIAIS (FEATURES GRID) ═══ */
 .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px; }
 .feature-card {
   background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 24px;
   text-align:center; cursor:default; position:relative; overflow:hidden;
   transition:transform .3s var(--spring), box-shadow .3s, border-color .3s;
 }
-/* gradient border glow on hover */
+/* Truque visual: Injeta e colore uma borda falsa em gradiente ao focar o bloco */
 .feature-card::before {
   content:''; position:absolute; inset:-1px; border-radius:20px; padding:1px;
   background:linear-gradient(135deg, var(--mint), var(--lavender));
@@ -389,14 +314,14 @@ section { padding:88px 32px; }
 .feature-card h3 { font-size:1rem; font-weight:800; margin-bottom:8px; }
 .feature-card p { color:var(--muted); font-size:.875rem; line-height:1.65; }
 
-/* ═══ PRODUCTS ═══ */
+/* ═══ LISTAGEM COMERCIAL (CARDS DE PRODUTO DO CATÁLOGO) ═══ */
 .products-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:24px; }
 .product-card {
   background:var(--card-bg); border:1px solid var(--border); border-radius:22px;
   overflow:hidden; cursor:pointer; position:relative;
   transition:transform .3s var(--spring), box-shadow .3s, border-color .3s;
 }
-/* shimmer sweep on hover */
+/* Efeito decorativo: Feixe de luz horizontal passando por cima do Produto (Shimmer Sweep) */
 .product-card::after {
   content:''; position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(105deg, transparent 40%, rgba(255,255,255,.05) 50%, transparent 60%);
@@ -439,7 +364,7 @@ section { padding:88px 32px; }
 @keyframes addPulse { 0%{transform:scale(1)} 45%{transform:scale(.87)} 100%{transform:scale(1)} }
 .add-cart.adding { animation:addPulse .28s ease; }
 
-/* ═══ CATALOG TABS ═══ */
+/* ═══ FILTROS E BOTÕES DE CONTROLE DOS PRODUTOS DO CATÁLOGO ═══ */
 .catalog-tabs { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
 .tab-btn {
   background:var(--card-bg); border:1px solid var(--border); border-radius:50px;
@@ -454,7 +379,7 @@ section { padding:88px 32px; }
   transform:translateY(-1px);
 }
 
-/* ═══ GALLERY ═══ */
+/* ═══ ESTRUTURA METADE-TELA / METADE-FOTO DA GALERIA EM GRADE CSS ═══ */
 #galeria { background:linear-gradient(180deg, var(--dark4) 0%, var(--dark3) 50%, var(--dark4) 100%); }
 .gallery-grid {
   display:grid; grid-template-columns:repeat(4,1fr);
@@ -481,7 +406,9 @@ section { padding:88px 32px; }
 }
 .gallery-item:hover .gallery-overlay { opacity:1; }
 
-/* ═══ FLOATING LABELS ═══ */
+/* ═══ CONTROLES DE FORMULÁRIO COM EFEITOS DINÂMICOS (FLOATING LABELS) ═══
+   Técnica que permite ao título do campo mover-se magicamente para cima 
+   quando um texto é inserido pelo usuário. */
 .float-group { position:relative; margin-bottom:20px; }
 .float-input, .float-textarea {
   width:100%; background:rgba(255,255,255,.06); border:1.5px solid var(--border);
@@ -533,7 +460,7 @@ section { padding:88px 32px; }
 .error-hint { font-size:.75rem; color:var(--coral); margin-top:4px; padding-left:4px; display:none; }
 .error-hint.show { display:block; }
 
-/* ═══ CONTACT ═══ */
+/* ═══ ESTRUTURA BIFURCADA PARA DADOS DA SEÇÃO DE CONTATO ═══ */
 .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
 .contact-form { background:var(--card-bg); border:1px solid var(--border); border-radius:24px; padding:36px; }
 .contact-form-title { font-family:'Baloo 2',cursive; font-size:1.2rem; font-weight:800; margin-bottom:24px; }
@@ -550,7 +477,9 @@ section { padding:88px 32px; }
 .contact-item-text { font-weight:700; font-size:.9rem; }
 .contact-item-sub { color:var(--muted); font-size:.8rem; margin-top:1px; }
 
-/* ═══ CART DRAWER ═══ */
+/* ═══ GAVETA LATERAL DO CARRINHO (CART DRAWER) ═══
+   Desliza da margem direita da tela encobrindo o site quando ativo.
+*/
 .drawer-backdrop {
   position:fixed; inset:0; z-index:300; background:rgba(0,0,0,0);
   pointer-events:none; transition:background .3s;
@@ -611,7 +540,9 @@ section { padding:88px 32px; }
 .drawer-sub-label { color:var(--muted); font-weight:600; font-size:.88rem; }
 .drawer-sub-value { font-family:'Baloo 2',cursive; font-size:1.55rem; font-weight:800; color:var(--mint); }
 
-/* ═══ CHECKOUT WIZARD ═══ */
+/* ═══ POPUP/MODAL MULTITELAS DE FINALIZAÇÃO DA COMPRA (WIZARD) ═══
+   Centraliza a captura do endereço e pagamento blindando outras distrações do site.
+*/
 .wizard-overlay {
   position:fixed; inset:0; z-index:350; background:rgba(0,0,0,.85);
   backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center;
@@ -639,7 +570,7 @@ section { padding:88px 32px; }
 }
 .wizard-close:hover { color:var(--coral); border-color:var(--coral); }
 
-/* Step bar */
+/* Marcadores numéricos lineares revelando em que etapa do fluxo o cliente está */
 .step-bar { display:flex; align-items:flex-start; }
 .step-dot { display:flex; flex-direction:column; align-items:center; flex:1; }
 .step-dot-num {
@@ -683,7 +614,7 @@ section { padding:88px 32px; }
 .btn-wiz-next:active { transform:scale(.97); }
 .btn-wiz-next.send { background:linear-gradient(135deg, #25D366, #128C7E); color:#fff; }
 
-/* ═══ PAYMENT OPTIONS ═══ */
+/* ═══ DESIGN SELECIONÁVEL DE FORMAS DE PAGAMENTO ═══ */
 .payment-grid { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 .payment-opt {
   background:var(--card-bg); border:2px solid var(--border); border-radius:14px;
@@ -708,7 +639,7 @@ section { padding:88px 32px; }
   color:var(--green); border-radius:50px; padding:2px 7px; font-size:.68rem; font-weight:800; margin-top:5px;
 }
 
-/* ═══ ORDER SUMMARY ═══ */
+/* ═══ CONFIRMAÇÃO RESUMIDA DO RECIBO ANTES DO ENVIO WHATSAPP ═══ */
 .summary-badge {
   display:flex; align-items:center; justify-content:center; gap:8px;
   background:rgba(94,207,168,.06); border:1px solid rgba(94,207,168,.18);
@@ -737,7 +668,7 @@ section { padding:88px 32px; }
   color:var(--green); border-radius:50px; padding:1px 7px; font-size:.7rem; font-weight:800; margin-left:5px;
 }
 
-/* ═══ CEP ROW ═══ */
+/* ═══ COMPONENTES DO CAMPO DE ENDEREÇO MÁGICO VIA CEP ═══ */
 .cep-row { display:flex; gap:10px; align-items:flex-start; }
 .cep-row .float-group { flex:1; }
 .cep-btn {
@@ -753,7 +684,9 @@ section { padding:88px 32px; }
 @keyframes spin { to{transform:rotate(360deg)} }
 .addr-row { display:grid; grid-template-columns:1fr 110px; gap:10px; }
 
-/* ═══ TOAST ═══ */
+/* ═══ ELEMENTOS POP-UP NÃO INVASIVOS (TOASTS) ═══ 
+   Mensagens rápidas como "Carrinho Atualizado" que desaparecem sozinhas no tempo.
+*/
 .toast-stack { position:fixed; bottom:22px; right:22px; z-index:500; display:flex; flex-direction:column; gap:9px; align-items:flex-end; pointer-events:none; }
 .toast {
   background:linear-gradient(135deg, var(--mint), var(--lavender)); color:#111;
@@ -767,7 +700,9 @@ section { padding:88px 32px; }
 .toast.error   { background:linear-gradient(135deg, #ff5b5b, var(--coral)); color:#fff; }
 .toast.success { background:linear-gradient(135deg, #25D366, #128C7E); color:#fff; }
 
-/* ═══ RIPPLE ═══ */
+/* ═══ EFEITO DE ONDA AQUÁTICA AO CLICAR EM BOTÕES DO TIPO (MATERIAL RIPPLE) ═══ 
+   Traz resposta de toque física satisfatória a elementos como o clique do CEP.
+*/
 .ripple-wave {
   position:absolute; border-radius:50%; pointer-events:none;
   background:rgba(255,255,255,.22); transform:scale(0);
@@ -775,7 +710,7 @@ section { padding:88px 32px; }
 }
 @keyframes rippleAnim { to{transform:scale(4);opacity:0} }
 
-/* ═══ FOOTER ═══ */
+/* ═══ RODAPÉ COMERCIAL (FOOTER) ═══ */
 footer {
   background:var(--dark4); border-top:1px solid var(--border);
   padding:48px 32px; text-align:center;
@@ -786,12 +721,14 @@ footer {
 .footer-links a:hover { color:var(--mint); }
 .footer-copy { color:var(--subtle); font-size:.82rem; line-height:1.7; }
 
-/* ═══ PREFERS REDUCED MOTION ═══ */
+/* ═══ ACESSIBILIDADE E DISPOSITIVOS (REDUCED MOTION) ═══
+   Desabilita animações fluidas para usuários com distúrbios de enjoo e afins nas configurações nativas do SO.
+*/
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
 
-/* ═══ RESPONSIVE ═══ */
+/* ═══ REGRAS GLOBAIS DE RESPONSIVIDADE (MOBILE & TABLETS BREAKPOINTS) ═══ */
 @media (max-width:900px) {
   .contact-grid { grid-template-columns:1fr; }
 }
@@ -821,7 +758,9 @@ footer {
 }
 
 /* ═══════════════════════════════════════════
-   PRODUCT ART (SVG wrapper)
+   TRATAMENTO DE IMAGENS NOS PRODUTOS DE DESTAQUE E VITRINES 
+   Cobre a renderização e posicionamento das caixas em SVGs para evitar
+   estiramentos ou deformações independentemente de resoluções de telas.
 ═══════════════════════════════════════════ */
 .product-art-wrap {
   position:relative; height:200px; overflow:hidden;
@@ -835,11 +774,12 @@ footer {
   position:absolute; top:12px; right:12px; z-index:2;
 }
 
-/* preserve-3d for tilt */
+/* Propriedades 3D para suportar efeitos avançados interativos em cards flutuantes futuramente */
 .product-card { transform-style:preserve-3d; will-change:transform; }
 
 /* ═══════════════════════════════════════════
-   BENTO GRID (featured section)
+   MODERN BENTO GRID
+   Define a grade com blocos dispostos assimetricamente destacando os principais tópicos.
 ═══════════════════════════════════════════ */
 .bento-grid {
   display:grid;
@@ -848,11 +788,11 @@ footer {
   gap:18px;
 }
 
-/* Card 1 — tall (left column, full height) */
+/* Card 1 — Quadrante Vertical Esquerdo (Preenche toda a Altura da Grade) */
 .bento-grid .bento-card:nth-child(1) { grid-column:1; grid-row:1/3; }
-/* Card 2 — wide (top right 2 cols) */
+/* Card 2 — Quadrante Horizontal Superior Direito (Ocupa as 2 colunas adjacentes) */
 .bento-grid .bento-card:nth-child(2) { grid-column:2/4; grid-row:1; }
-/* Cards 3 & 4 — small (bottom right) */
+/* Cards 3 e 4 — Quadrados base simétricos sob a estrutura Horizontal */
 .bento-grid .bento-card:nth-child(3) { grid-column:2; grid-row:2; }
 .bento-grid .bento-card:nth-child(4) { grid-column:3; grid-row:2; }
 
@@ -864,7 +804,7 @@ footer {
 }
 .bento-card:hover { border-color:rgba(94,207,168,.2); }
 
-/* Glow orb (follows mouse implicitly via CSS) */
+/* Esfera brilhante subjacente para criar volume via hover em blocos no Bento Grid */
 .bento-glow {
   position:absolute; inset:0; pointer-events:none; border-radius:22px;
   background:radial-gradient(circle at 50% 50%, rgba(94,207,168,.07), transparent 60%);
@@ -872,7 +812,7 @@ footer {
 }
 .bento-card:hover .bento-glow { opacity:1; }
 
-/* ── TALL card ── */
+/* ── Layout Interno Específico: Card Vertical ── */
 .bento-tall { display:flex; flex-direction:column; }
 .bento-art {
   flex:1; overflow:hidden; min-height:0;
@@ -886,7 +826,7 @@ footer {
   background:linear-gradient(0deg, rgba(20,20,30,.95) 0%, transparent 100%);
 }
 
-/* ── WIDE card ── */
+/* ── Layout Interno Específico: Card Horizontal Duplo ── */
 .bento-wide { display:flex; flex-direction:row; }
 .bento-art-wide {
   width:46%; flex-shrink:0; overflow:hidden;
@@ -900,7 +840,7 @@ footer {
   position:relative; z-index:1;
 }
 
-/* ── SMALL card ── */
+/* ── Layout Interno Específico: Cards Quadrados Simplificados ── */
 .bento-small { display:flex; flex-direction:column; }
 .bento-art-sm {
   flex:1; overflow:hidden; min-height:0;
@@ -914,7 +854,7 @@ footer {
   background:linear-gradient(0deg, rgba(20,20,30,.95) 0%, transparent 100%);
 }
 
-/* Shared bento typography */
+/* Regras unificadas de Textos/Tipografias para toda estrutura Bento */
 .bento-badge { position:absolute; top:12px; right:12px; z-index:2; }
 .bento-name {
   font-weight:800; font-size:1rem; margin-bottom:6px;
@@ -929,7 +869,7 @@ footer {
 .bento-price { font-family:'Baloo 2',cursive; font-size:1.3rem; font-weight:800; color:var(--mint); white-space:nowrap; }
 .add-cart-sm { padding:6px 12px; font-size:.76rem; }
 
-/* Gradient border on bento hover */
+/* Gradiente dinâmico mapeado e revelado exclusivamente durante o estado de mouse "Hover" */
 .bento-card::before {
   content:''; position:absolute; inset:0; border-radius:22px;
   background:linear-gradient(135deg, rgba(94,207,168,.35), rgba(184,169,245,.25));
@@ -940,7 +880,7 @@ footer {
 }
 .bento-card:hover::before { opacity:1; }
 
-/* ── Responsive bento ── */
+/* ── Remapeamento da grade complexa do Bento quando usada em telas limitadas ── */
 @media (max-width:900px) {
   .bento-grid {
     grid-template-columns:1fr 1fr;

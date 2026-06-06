@@ -1,7 +1,14 @@
+/**
+ * Gera um número de pedido aleatório simulando um sistema real (Ex: SP-K1X8Y).
+ */
 function genOrderId() {
   return "SP-" + Date.now().toString(36).toUpperCase();
 }
 
+/**
+ * Constrói a mensagem final consolidada para ser enviada pelo WhatsApp.
+ * Pega os dados do carrinho, formata preços, aplica descontos matemáticos e anexa o endereço.
+ */
 function buildCheckoutPayload(cart, checkout) {
   const { nome, tel, email, cep, rua, numero, complemento, bairro, cidade, uf, pagamento, orderId } = checkout;
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
@@ -34,6 +41,9 @@ function buildCheckoutPayload(cart, checkout) {
   return msg;
 }
 
+/**
+ * Gera uma mensagem de contato simples (Orçamento ou dúvida avulsa de um produto).
+ */
 function buildContactPayload(data) {
   const { nome, tel, produto, cor, msg } = data;
   let m = `📋 *CONSULTA — SensoPrint*\n\n`;

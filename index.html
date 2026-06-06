@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ═══ NAVEGAÇÃO PRINCIPAL (NAVBAR) ═══ -->
 <nav>
   <div class="logo">🖨️ SensoPrint</div>
   <ul class="nav-links" id="navLinks">
@@ -34,19 +34,20 @@
 </nav>
 
 <!-- ══════════════════════════════════════════
-     HERO — port do hero-section-5 (21st.dev / Tailus)
-     Vídeo de fundo · texto sobreposto · pill buttons
+     SEÇÃO HERO (DESTAQUE INICIAL)
+     Baseada em design patterns modernos, apresentando
+     vídeo de fundo, texto de impacto e botões de ação arredondados.
 ══════════════════════════════════════════ -->
 <section class="h5" id="inicio">
 
-  <!-- Vídeo de fundo (DNA / partículas — Tailus CDN) -->
+  <!-- Vídeo de fundo em loop contínuo (DNA / partículas) -->
   <div class="h5-video-box" aria-hidden="true">
     <video class="h5-video" autoplay loop muted playsinline>
       <source src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477" type="video/mp4">
     </video>
   </div>
 
-  <!-- Conteúdo sobreposto -->
+  <!-- Conteúdo de texto e botões sobrepostos ao vídeo -->
   <div class="h5-body">
     <div class="h5-text">
       <h1 class="h5-title">
@@ -68,46 +69,9 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     BRANDS SLIDER — port do InfiniteSlider + ProgressiveBlur
-══════════════════════════════════════════ -->
-<section class="brands-sec">
-  <div class="brands-inner">
 
-    <div class="brands-label">
-      <p>Referências de<br>qualidade</p>
-    </div>
 
-    <div class="brands-outer">
-      <!-- Track duplicado para loop contínuo -->
-      <div class="brands-track" id="brandsTrack">
-        <div class="brand-img"><img src="assets/brands/brand-1.svg" alt="NexoLabs" height="22"></div>
-        <div class="brand-img"><img src="assets/brands/brand-2.svg" alt="Orbital"  height="22"></div>
-        <div class="brand-img"><img src="assets/brands/brand-3.svg" alt="Prism"    height="22"></div>
-        <div class="brand-img"><img src="assets/brands/brand-4.svg" alt="Velox"    height="22"></div>
-        <div class="brand-img"><img src="assets/brands/brand-5.svg" alt="Quasar"   height="22"></div>
-        <div class="brand-img"><img src="assets/brands/brand-6.svg" alt="Aether"   height="22"></div>
-        <div class="brand-img"><img src="assets/brands/brand-7.svg" alt="Lumina"   height="22"></div>
-        <div class="brand-img"><img src="assets/brands/brand-8.svg" alt="Zenith"   height="22"></div>
-        <!-- Segunda cópia para loop contínuo sem salto -->
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-1.svg" alt="" height="22"></div>
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-2.svg" alt="" height="22"></div>
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-3.svg" alt="" height="22"></div>
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-4.svg" alt="" height="22"></div>
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-5.svg" alt="" height="22"></div>
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-6.svg" alt="" height="22"></div>
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-7.svg" alt="" height="22"></div>
-        <div class="brand-img" aria-hidden="true"><img src="assets/brands/brand-8.svg" alt="" height="22"></div>
-      </div>
-
-      <!-- Progressive blur (port do ProgressiveBlur — backdrop-filter + mask) -->
-      <div class="pblur pblur-l" aria-hidden="true"></div>
-      <div class="pblur pblur-r" aria-hidden="true"></div>
-    </div>
-  </div>
-</section>
-
-<!-- SOBRE -->
+<!-- ═══ SEÇÃO SOBRE (NOSSO PROPÓSITO) ═══ -->
 <section id="sobre">
   <div class="container">
     <div class="section-header">
@@ -116,15 +80,15 @@
       <p class="section-sub">Cada peça é impressa com cuidado, usando materiais seguros e não tóxicos</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card"><span class="feature-icon">🧠</span><h3>Antiestresse comprovado</h3><p>Texturas e movimentos que ativam o foco e reduzem a ansiedade em momentos de tensão.</p></div>
-      <div class="feature-card"><span class="feature-icon">🌱</span><h3>Material ecológico</h3><p>Impressos em PLA biodegradável, seguro para todas as idades e sustentável para o planeta.</p></div>
-      <div class="feature-card"><span class="feature-icon">🎨</span><h3>Personalização total</h3><p>Cores, tamanhos e formatos personalizados. Encomendar um brinquedo único nunca foi tão fácil.</p></div>
-      <div class="feature-card"><span class="feature-icon">🚚</span><h3>Entrega rápida</h3><p>Enviamos para todo o Brasil. Pedidos personalizados prontos em até 5 dias úteis.</p></div>
+      <div class="feature-card"><div class="feature-icon">🧠</div><h3>Antiestresse comprovado</h3><p>Texturas e movimentos que ativam o foco e reduzem a ansiedade em momentos de tensão.</p></div>
+      <div class="feature-card"><div class="feature-icon">🌱</div><h3>Material ecológico</h3><p>Impressos em PLA biodegradável, seguro para todas as idades e sustentável para o planeta.</p></div>
+      <div class="feature-card"><div class="feature-icon">🎨</div><h3>Personalização total</h3><p>Cores, tamanhos e formatos personalizados. Encomendar um brinquedo único nunca foi tão fácil.</p></div>
+      <div class="feature-card"><div class="feature-icon">🚚</div><h3>Entrega rápida</h3><p>Enviamos para todo o Brasil. Pedidos personalizados prontos em até 5 dias úteis.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PRODUTOS EM DESTAQUE -->
+<!-- ═══ SEÇÃO DE PRODUTOS EM DESTAQUE (TOP SELLERS) ═══ -->
 <section id="produtos" style="background:rgba(255,255,255,.015)">
   <div class="container">
     <div class="section-header">
@@ -136,7 +100,7 @@
   </div>
 </section>
 
-<!-- CATÁLOGO -->
+<!-- ═══ SEÇÃO DO CATÁLOGO COMPLETO ═══ -->
 <section id="catalogo">
   <div class="container">
     <div class="section-header">
@@ -149,7 +113,7 @@
   </div>
 </section>
 
-<!-- GALERIA -->
+<!-- ═══ SEÇÃO DE GALERIA DE FOTOS ═══ -->
 <section id="galeria">
   <div class="container">
     <div class="section-header">
@@ -167,7 +131,7 @@
   </div>
 </section>
 
-<!-- CONTATO -->
+<!-- ═══ SEÇÃO DE CONTATO E ORÇAMENTOS ═══ -->
 <section id="contato">
   <div class="container">
     <div class="section-header">
@@ -179,7 +143,7 @@
       <div class="contact-info">
         <h3>Atendimento personalizado 💬</h3>
         <p>Preencha o formulário ao lado e receba um relatório completo do seu pedido direto no WhatsApp. Respondemos em até 1 hora nos dias úteis!</p>
-        <div class="contact-item"><div class="contact-item-icon">📱</div><div><div class="contact-item-text">WhatsApp</div><div class="contact-item-sub">(61) 9 4319-6166 — Brasília/DF</div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">📱</div><div><div class="contact-item-text">WhatsApp</div><div class="contact-item-sub">(61) 99963-9758 — Brasília/DF</div></div></div>
         <div class="contact-item"><div class="contact-item-icon">📦</div><div><div class="contact-item-text">Pedidos personalizados</div><div class="contact-item-sub">Prazo: 5 dias úteis após confirmação</div></div></div>
         <div class="contact-item"><div class="contact-item-icon">🌍</div><div><div class="contact-item-text">Envio para todo o Brasil</div><div class="contact-item-sub">Correios PAC, SEDEX e transportadoras</div></div></div>
         <div class="contact-item"><div class="contact-item-icon">⏰</div><div><div class="contact-item-text">Horário de atendimento</div><div class="contact-item-sub">Seg–Sex: 8h–18h | Sáb: 9h–13h</div></div></div>
@@ -239,24 +203,19 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══ RODAPÉ (FOOTER) ═══ -->
 <footer>
   <div class="footer-logo logo">🖨️ SensoPrint</div>
-  <nav class="footer-links" aria-label="Links do rodapé">
-    <a href="#sobre">Sobre</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#catalogo">Catálogo</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#contato">Contato</a>
-  </nav>
-  <p class="footer-copy">
+    <p class="footer-copy">
     Brinquedos sensoriais impressos em 3D — feitos com carinho para o seu bem-estar.<br>
-    Brasília, DF · (61) 9 4319-6166 · sensoprint@email.com<br>
+    Brasília, DF · (61) 99963-9758 · sensoprint@email.com<br>
     <span style="font-size:.78rem">© 2025 SensoPrint. Todos os direitos reservados.</span>
   </p>
 </footer>
 
-<!-- CART DRAWER -->
+<!-- ═══ CARRINHO LATERAL (DRAWER) ═══ 
+     Menu deslizante que exibe os itens selecionados para compra. 
+-->
 <div id="drawerBackdrop" class="drawer-backdrop" onclick="closeDrawer()"></div>
 <div id="cartDrawer" class="cart-drawer">
   <div class="drawer-header">
@@ -276,7 +235,9 @@
   </div>
 </div>
 
-<!-- CHECKOUT WIZARD -->
+<!-- ═══ MODAL DE CHECKOUT (WIZARD) ═══ 
+     Formulário dividido em etapas lógicas para facilitar a finalização da compra.
+-->
 <div id="wizardOverlay" class="wizard-overlay">
   <div class="wizard-modal" id="wizardModal">
 
@@ -298,7 +259,7 @@
 
     <div class="wizard-body">
 
-      <!-- Step 1: Dados pessoais -->
+      <!-- Etapa 1: Coleta de dados pessoais do cliente -->
       <div class="step-content active" id="step1">
         <div class="step-heading">Sobre você</div>
         <div class="step-sub">Para enviarmos a confirmação do pedido</div>
@@ -326,7 +287,7 @@
         </div>
       </div>
 
-      <!-- Step 2: Endereço -->
+      <!-- Etapa 2: Endereço de entrega com busca automática pelo CEP via API -->
       <div class="step-content" id="step2">
         <div class="step-heading">Endereço de entrega</div>
         <div class="step-sub">Digite o CEP para preencher automaticamente</div>
@@ -404,7 +365,7 @@
         </div>
       </div>
 
-      <!-- Step 3: Pagamento -->
+      <!-- Etapa 3: Seleção da forma de pagamento desejada -->
       <div class="step-content" id="step3">
         <div class="step-heading">Forma de pagamento</div>
         <div class="step-sub">Escolha como prefere pagar</div>
@@ -438,7 +399,7 @@
         </div>
       </div>
 
-      <!-- Step 4: Confirmação -->
+      <!-- Etapa 4: Resumo total do pedido e botão para acionar o WhatsApp -->
       <div class="step-content" id="step4">
         <div class="step-heading">Confirme seu pedido</div>
         <div class="step-sub">Revise tudo antes de enviar pelo WhatsApp</div>
@@ -456,10 +417,14 @@
   </div>
 </div>
 
-<!-- TOAST STACK -->
+<!-- ═══ SISTEMA DE NOTIFICAÇÕES (TOASTS) ═══ 
+     Contêiner flutuante que abriga mensagens rápidas na tela (ex: "Adicionado"). 
+-->
 <div class="toast-stack" id="toastStack"></div>
 
-<!-- SCRIPTS (ordem de dependência) -->
+<!-- ═══ SCRIPTS DA APLICAÇÃO ═══ 
+     A ordem das importações importa, pois alguns arquivos dependem dos dados e variáveis dos anteriores.
+-->
 <script src="js/data.js"></script>
 <script src="js/state.js"></script>
 <script src="js/cart.js"></script>
@@ -476,3 +441,84 @@
 
 </body>
 </html>
+<style>
+  /* Correção para evitar duplicação ou sobreposição dos itens do menu em dispositivos móveis */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Escondido por padrão em telas pequenas */
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--bg-nav, #fff);
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+      display: flex; /* Exibe apenas quando a classe 'active' for alternada via JavaScript */
+    }
+  }
+
+  /* Garante que a visualização no desktop permaneça horizontal e em linha única */
+  @media (min-width: 769px) {
+    .nav-links {
+      display: flex !important;
+      flex-direction: row;
+      position: static;
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * Função simples de alternância (toggle) para prevenir a duplicação do menu 
+   * e gerenciar corretamente a exibição nos dispositivos móveis.
+   */
+  function toggleMobileNav() {
+    const nav = document.getElementById('navLinks');
+    const toggle = document.getElementById('navToggle');
+    
+    nav.classList.toggle('active');
+    toggle.classList.toggle('open');
+    
+    // Atualiza o atributo de acessibilidade indicando se o menu está expandido para leitores de tela
+    const isOpen = nav.classList.contains('active');
+    toggle.setAttribute('aria-expanded', isOpen);
+  }
+
+  // Fecha o menu móvel automaticamente sempre que o usuário clica em algum link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('active');
+      document.getElementById('navToggle').classList.remove('open');
+    });
+  });
+</script>
+<style>
+  /* Remove links de navegação duplicados que podem ser acidentalmente renderizados pelo CMS fora da tag <nav> */
+  body > a[href="#sobre"],
+  body > a[href="#produtos"],
+  body > a[href="#catalogo"],
+  body > a[href="#galeria"],
+  body > a[href="#contato"] {
+    display: none !important;
+  }
+</style>
+
+<script>
+  /**
+   * Rotina de limpeza que encontra e remove quaisquer tags de âncora perdidas
+   * que possam ter sido injetadas na raiz do body.
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = ['sobre', 'produtos', 'catalogo', 'galeria', 'contato'];
+    sections.forEach(id => {
+      const strays = document.querySelectorAll(`body > a[href="#${id}"]`);
+      strays.forEach(el => el.remove());
+    });
+  });
+</script>

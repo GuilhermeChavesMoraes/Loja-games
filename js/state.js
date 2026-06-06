@@ -1,3 +1,7 @@
+/**
+ * Objeto global de Estado (State) da aplicação.
+ * Centraliza todos os dados dinâmicos do carrinho de compras e formulários preenchidos.
+ */
 const state = {
   cart:      [],
   activeTab: "todos",

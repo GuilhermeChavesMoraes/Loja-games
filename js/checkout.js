@@ -1,4 +1,4 @@
-/* ── Open / close ── */
+/* ── Funções de Abertura e Fechamento do Modal de Checkout ── */
 function openCheckout() {
   if (state.cart.length === 0) return;
   state.checkout.step    = 1;
@@ -16,7 +16,7 @@ function closeCheckout() {
   document.body.style.overflow = "";
 }
 
-/* ── Step rendering ── */
+/* ── Renderização Visual das Etapas do Wizard ── */
 function renderWizardStep() {
   const s = state.checkout.step;
 
@@ -43,7 +43,7 @@ function renderWizardStep() {
   document.getElementById("wizardModal").scrollTop = 0;
 }
 
-/* ── Navigation ── */
+/* ── Navegação entre as Etapas Lógicas (Avançar e Voltar) ── */
 function nextStep() {
   if (!validateStep(state.checkout.step)) return;
   collectStepData(state.checkout.step);
@@ -75,7 +75,7 @@ function collectStepData(step) {
   }
 }
 
-/* ── Validation ── */
+/* ── Validação dos Campos Obrigatórios em Cada Etapa ── */
 function validateStep(step) {
   let ok = true;
 
@@ -107,7 +107,7 @@ function validateStep(step) {
   return ok;
 }
 
-/* ── Payment selection ── */
+/* ── Seleção e Marcação da Forma de Pagamento ── */
 function selectPayment(key, el) {
   document.querySelectorAll(".payment-opt").forEach(o => o.classList.remove("selected"));
   el.classList.add("selected");
@@ -116,7 +116,10 @@ function selectPayment(key, el) {
   if (hint) hint.classList.remove("show");
 }
 
-/* ── CEP lookup ── */
+/* ── Busca Automática de Endereço via API Externa (ViaCEP) ── 
+   Esta função consome um serviço REST, aguarda a resposta e preenche
+   os campos de endereço da etapa 2 de forma automática. 
+*/
 async function lookupCEP() {
   const raw = document.getElementById("f_cep").value.replace(/\D/g, "");
   if (raw.length !== 8) { showToast("CEP deve ter 8 dígitos", "error"); return; }
@@ -149,7 +152,7 @@ async function lookupCEP() {
   }
 }
 
-/* ── Summary render ── */
+/* ── Renderização Final do Resumo do Pedido (Confirmação) ── */
 function renderSummary() {
   const co      = state.checkout;
   const sub     = cartTotal();
@@ -191,7 +194,7 @@ function renderSummary() {
   document.getElementById("summaryContent").innerHTML = html;
 }
 
-/* ── Send to WhatsApp ── */
+/* ── Processamento e Envio dos Dados para o Aplicativo WhatsApp ── */
 function sendToWhatsApp() {
   const payload = buildCheckoutPayload(state.cart, state.checkout);
   window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(payload)}`, "_blank");
