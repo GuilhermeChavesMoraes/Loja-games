@@ -1,0 +1,69 @@
+.card {
+  background-color: #1e1e24;
+  border-radius: 12px; /* Requisito: Bordas arredondadas */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Requisito: Sombras */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imagem {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Requisito: Proporção consistente */
+}
+
+.conteudo {
+  padding: 20px; /* Requisito: Espaçamento interno */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titulo {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 700; /* Requisito: Hierarquia clara */
+}
+
+.categoria {
+  font-size: 0.9rem;
+  color: #ff4757; /* Cor de destaque da paleta */
+}
+
+.descricao {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+.badge {
+  align-self: flex-start;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.disp { background-color: #2ed573; color: #fff; }
+.indisp { background-color: #747d8c; color: #fff; }
+
+.botao {
+  margin-top: auto;
+  padding: 10px;
+  border: none; /* Requisito: Remover visual padrão do browser */
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #2f3542;
+  color: white;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.botao:hover { background-color: #57606f; }
+.botao.favoritado { background-color: #ff4757; }
