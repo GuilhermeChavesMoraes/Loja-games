@@ -50,6 +50,7 @@
   }
 }
 
+/* Aqui foi uma cor que coloquei um plano de fundo pra deixar mais atraente */
 body {
    margin: 0;
   min-height: 100vh;
@@ -73,6 +74,7 @@ body {
   box-sizing: border-box;
 }
 
+/*Melhorei a cor do titulo para deixar o mais moderno possível*/
 h1,
 h2 {
   font-size: 4rem;
