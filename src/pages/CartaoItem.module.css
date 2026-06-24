@@ -1,7 +1,7 @@
 .card {
   background-color: #1e1e24;
-  border-radius: 12px; /* Requisito: Bordas arredondadas */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Requisito: Sombras */
+  border-radius: 12px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -15,11 +15,11 @@
 .imagem {
   width: 100%;
   height: 200px;
-  object-fit: cover; /* Requisito: Proporção consistente */
+  object-fit: cover; 
 }
 
 .conteudo {
-  padding: 20px; /* Requisito: Espaçamento interno */
+  padding: 20px; 
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -28,12 +28,12 @@
 .titulo {
   font-size: 1.4rem;
   color: #fff;
-  font-weight: 700; /* Requisito: Hierarquia clara */
+  font-weight: 700; 
 }
 
 .categoria {
   font-size: 0.9rem;
-  color: #ff4757; /* Cor de destaque da paleta */
+  color: #ff4757; 
 }
 
 .descricao {
@@ -56,7 +56,7 @@
 .botao {
   margin-top: auto;
   padding: 10px;
-  border: none; /* Requisito: Remover visual padrão do browser */
+  border: none; 
   border-radius: 6px;
   cursor: pointer;
   background-color: #2f3542;
