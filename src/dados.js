@@ -7,7 +7,7 @@ export const gamesData = [
     nota: 9.2,
     status: "Disponível",
     descricao: "Explore uma metrópole futurista controlada por megacorporações em um RPG imersivo.",
-    imagem: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7497.jpg"
+    imagem: "./src/assets/cyberpunk.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const gamesData = [
     nota: 8.9,
     status: "Disponível",
     descricao: "Domine a arte da katana e defenda seu clã contra forças místicas do Japão Feudal.",
-    imagem: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2crj.jpg"
+    imagem: "./src/assets/Ghost of Tsushima.jpg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const gamesData = [
     nota: 8.5,
     status: "Esgotado",
     descricao: "Construa seu império estelar, colonize novos planetas e negocie com raças alienígenas.",
-    imagem: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/281990/header.jpg"
+    imagem: "./src/assets/Stellaris.jpg"
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const gamesData = [
     nota: 9.0,
     status: "Disponível",
     descricao: "Enfrente masmorras geradas proceduralmente com gráficos em pixel art nostálgicos.",
-    imagem: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/header.jpg"
+    imagem: "./src/assets/Dead Cells.jpg"
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const gamesData = [
     nota: 7.8,
     status: "Disponível",
     descricao: "Sinta a adrenalina de pilotar supercarros licenciados nos circuitos mais famosos do mundo.",
-    imagem: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg"
+    imagem: "./src/assets/Forza Horizon 5.jpg"
   },
   {
     id: 6,
@@ -57,18 +57,18 @@ export const gamesData = [
     nota: 8.7,
     status: "Disponível",
     descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalhas cooperativas em um MMORPG de ação com morte permanente.",
-    imagem: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/200210/header.jpg"
+    imagem: "./src/assets/Realm of the Mad God Exalt.jpg"
   },
   {
     id: 7,
     nome: "7 Days to Die",
-    categoria: "Sobrevivência",
-    plataforma: "PC / PS5",
-    nota: 8.1,
+    categoria: "Survival / Horror",
+    plataforma: "PC / Xbox / PS5",
+    nota: 8.0,
     status: "Disponível",
-    descricao: "Colete recursos, construa abrigos e sobreviva a hordas noturnas de infectados.",
-    imagem: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/251570/header.jpg"
-  },
+    descricao: "Um jogo de sobrevivência em mundo aberto.",
+    imagem: "./src/assets/7days.jpg"
+  },  
   {
     id: 8,
     nome: "Neon White",
@@ -77,6 +77,6 @@ export const gamesData = [
     nota: 8.4,
     status: "Disponível",
     descricao: "Um shooter rítmico frenético com uma trilha sonora synthwave empolgante.",
-    imagem: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1533420/header.jpg"
+    imagem: "./src/assets/Neon White.jpg"
   }
 ];
