@@ -50,19 +50,19 @@ export const gamesData = [
   },
   {
     id: 5,
-    nome: "Forza Horizon 5", // Adicionado de volta
-    categoria: "Corrida / Simulação", // Adicionado de volta
-    plataforma: "PC / Xbox", // Adicionado de volta
+    nome: "Forza Horizon 5", 
+    categoria: "Corrida / Simulação", 
+    plataforma: "PC / Xbox", 
     nota: 7.8,
     status: "Disponível",
-    descricao: "Sinta a adrenalina de pilotar supercarros licenciados nos circuitos mais famosos do mundo.",
+    descricao: "Sinta a adrenaline de pilotar supercarros licenciados nos circuitos mais famosos do mundo.",
     imagem: forzaImg
   },
   {
     id: 6,
-    nome: "Realm of the Mad God Exalt", // Adicionado de volta
-    categoria: "MMORPG / Bullet Hell", // Adicionado de volta
-    plataforma: "PC", // Adicionado de volta
+    nome: "Realm of the Mad God Exalt", 
+    categoria: "MMORPG / Bullet Hell", 
+    plataforma: "PC", 
     nota: 8.7,
     status: "Disponível",
     descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalha cooperativas em um MMORPG de ação com morte permanente.",
@@ -70,19 +70,19 @@ export const gamesData = [
   },
   {
     id: 7,
-    nome: "7 Days to Die", // Adicionado de volta
-    categoria: "Survival / Horror", // Adicionado de volta
-    plataforma: "PC / Xbox / PS5", // Adicionado de volta
+    nome: "7 Days to Die", 
+    categoria: "Survival / Horror", 
+    plataforma: "PC / Xbox / PS5", 
     nota: 8.0,
     status: "Disponível",
     descricao: "Um jogo de sobrevivência em mundo aberto.",
     imagem: sevenDaysImg
-  },  
+  },   
   {
     id: 8,
-    nome: "Neon White", // Adicionado de volta
-    categoria: "Arcade / Shooter", // Adicionado de volta
-    plataforma: "PC / Switch / PlayStation", // Adicionado de volta
+    nome: "Neon White", 
+    categoria: "Arcade / Shooter", 
+    plataforma: "PC / Switch / PlayStation", 
     nota: 8.4,
     status: "Disponível",
     descricao: "Um shooter rítmico frenético com uma trilha sonora synthwave empolgante.",
