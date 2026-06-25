@@ -1,3 +1,12 @@
+import cyberpunkImg from "./assets/Cyberpunk.jpg";
+import ghostImg from "./assets/Ghost of Tsushima.jpg";
+import stellarisImg from "./assets/stellaris.jpg"; 
+import deadCellsImg from "./assets/Dead Cells.jpg";
+import forzaImg from "./assets/Forza Horizon 5.jpg";
+import rotmgImg from "./assets/Realm of the Mad God Exalt.jpg";
+import sevenDaysImg from "./assets/days.jpg"; 
+import neonWhiteImg from "./assets/Neon White.jpg";
+
 export const gamesData = [
   {
     id: 1,
@@ -7,7 +16,7 @@ export const gamesData = [
     nota: 9.2,
     status: "Disponível",
     descricao: "Explore uma metrópole futurista controlada por megacorporações em um RPG imersivo.",
-    imagem: "./src/assets/cyberpunk.jpg"
+    imagem: cyberpunkImg
   },
   {
     id: 2,
@@ -17,7 +26,7 @@ export const gamesData = [
     nota: 8.9,
     status: "Disponível",
     descricao: "Domine a arte da katana e defenda seu clã contra forças místicas do Japão Feudal.",
-    imagem: "./src/assets/Ghost of Tsushima.jpg"
+    imagem: ghostImg
   },
   {
     id: 3,
@@ -27,7 +36,7 @@ export const gamesData = [
     nota: 8.5,
     status: "Esgotado",
     descricao: "Construa seu império estelar, colonize novos planetas e negocie com raças alienígenas.",
-    imagem: "./src/assets/Stellaris.jpg"
+    imagem: stellarisImg
   },
   {
     id: 4,
@@ -37,46 +46,46 @@ export const gamesData = [
     nota: 9.0,
     status: "Disponível",
     descricao: "Enfrente masmorras geradas proceduralmente com gráficos em pixel art nostálgicos.",
-    imagem: "./src/assets/Dead Cells.jpg"
+    imagem: deadCellsImg
   },
   {
     id: 5,
-    nome: "Forza Horizon 5",
-    categoria: "Corrida / Simulação",
-    plataforma: "Xbox / PC",
+    nome: "Forza Horizon 5", // Adicionado de volta
+    categoria: "Corrida / Simulação", // Adicionado de volta
+    plataforma: "PC / Xbox", // Adicionado de volta
     nota: 7.8,
     status: "Disponível",
     descricao: "Sinta a adrenalina de pilotar supercarros licenciados nos circuitos mais famosos do mundo.",
-    imagem: "./src/assets/Forza Horizon 5.jpg"
+    imagem: forzaImg
   },
   {
     id: 6,
-    nome: "Realm of the Mad God Exalt",
-    categoria: "MMORPG / Bullet Hell",
-    plataforma: "PC",
+    nome: "Realm of the Mad God Exalt", // Adicionado de volta
+    categoria: "MMORPG / Bullet Hell", // Adicionado de volta
+    plataforma: "PC", // Adicionado de volta
     nota: 8.7,
     status: "Disponível",
-    descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalhas cooperativas em um MMORPG de ação com morte permanente.",
-    imagem: "./src/assets/Realm of the Mad God Exalt.jpg"
+    descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalha cooperativas em um MMORPG de ação com morte permanente.",
+    imagem: rotmgImg
   },
   {
     id: 7,
-    nome: "7 Days to Die",
-    categoria: "Survival / Horror",
-    plataforma: "PC / Xbox / PS5",
+    nome: "7 Days to Die", // Adicionado de volta
+    categoria: "Survival / Horror", // Adicionado de volta
+    plataforma: "PC / Xbox / PS5", // Adicionado de volta
     nota: 8.0,
     status: "Disponível",
     descricao: "Um jogo de sobrevivência em mundo aberto.",
-    imagem: "../src/assets/days.jpg"
+    imagem: sevenDaysImg
   },  
   {
     id: 8,
-    nome: "Neon White",
-    categoria: "Arcade / Shooter",
-    plataforma: "PC / Xbox / PS5",
+    nome: "Neon White", // Adicionado de volta
+    categoria: "Arcade / Shooter", // Adicionado de volta
+    plataforma: "PC / Switch / PlayStation", // Adicionado de volta
     nota: 8.4,
     status: "Disponível",
     descricao: "Um shooter rítmico frenético com uma trilha sonora synthwave empolgante.",
-    imagem: "./src/assets/Neon White.jpg"
+    imagem: neonWhiteImg
   }
 ];
