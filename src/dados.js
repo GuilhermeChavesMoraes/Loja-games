@@ -34,7 +34,7 @@ export const gamesData = [
     categoria: "Estratégia",
     plataforma: "PC",
     nota: 8.5,
-    status: "Esgotado",
+    status: "Disponível",
     descricao: "Construa seu império estelar, colonize novos planetas e negocie com raças alienígenas.",
     imagem: stellarisImg
   },
