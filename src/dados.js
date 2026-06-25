@@ -55,7 +55,7 @@ export const gamesData = [
     plataforma: "PC / Xbox", 
     nota: 7.8,
     status: "Disponível",
-    descricao: "Sinta a adrenaline de pilotar supercarros licenciados nos circuitos mais famosos do mundo.",
+    descricao: "Sinta a adrenalina de pilotar supercarros licenciados nos circuitos mais famosos do mundo.",
     imagem: forzaImg
   },
   {
@@ -65,7 +65,7 @@ export const gamesData = [
     plataforma: "PC", 
     nota: 8.7,
     status: "Disponível",
-    descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalha cooperativas em um MMORPG de ação com morte permanente.",
+    descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalhas cooperativas em um MMORPG de ação com morte permanente.",
     imagem: rotmgImg
   },
   {
