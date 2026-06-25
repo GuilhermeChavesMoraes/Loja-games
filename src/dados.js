@@ -1,11 +1,12 @@
-import cyberpunkImg from "./assets/Cyberpunk.jpg";
+// Importando as imagens para o Vite gerar os caminhos corretos de build
+import cyberpunkImg from "./assets/Cyberpunk.jpg"; // Atenção ao C maiúsculo
 import ghostImg from "./assets/Ghost of Tsushima.jpg";
-import stellarisImg from "./assets/stellaris.jpg"; 
+import stellarisImg from "./assets/stellaris.jpg";
 import deadCellsImg from "./assets/Dead Cells.jpg";
 import forzaImg from "./assets/Forza Horizon 5.jpg";
-import rotmgImg from "./assets/Realm of the Mad God Exalt.jpg";
-import sevenDaysImg from "./assets/days.jpg"; 
-import neonWhiteImg from "./assets/Neon White.jpg";
+import realmImg from "./assets/Realm of the Mad God Exalt.jpg";
+import daysImg from "./assets/days.jpg"; // Ajustado para corresponder a "days.jpg" da imagem
+import neonImg from "./assets/Neon White.jpg";
 
 export const gamesData = [
   {
@@ -34,7 +35,7 @@ export const gamesData = [
     categoria: "Estratégia",
     plataforma: "PC",
     nota: 8.5,
-    status: "Disponível",
+    status: "Esgotado",
     descricao: "Construa seu império estelar, colonize novos planetas e negocie com raças alienígenas.",
     imagem: stellarisImg
   },
@@ -50,9 +51,9 @@ export const gamesData = [
   },
   {
     id: 5,
-    nome: "Forza Horizon 5", 
-    categoria: "Corrida / Simulação", 
-    plataforma: "PC / Xbox", 
+    nome: "Forza Horizon 5",
+    categoria: "Corrida / Simulação",
+    plataforma: "Xbox / PC",
     nota: 7.8,
     status: "Disponível",
     descricao: "Sinta a adrenalina de pilotar supercarros licenciados nos circuitos mais famosos do mundo.",
@@ -60,32 +61,32 @@ export const gamesData = [
   },
   {
     id: 6,
-    nome: "Realm of the Mad God Exalt", 
-    categoria: "MMORPG / Bullet Hell", 
-    plataforma: "PC", 
+    nome: "Realm of the Mad God Exalt",
+    categoria: "MMORPG / Bullet Hell",
+    plataforma: "PC",
     nota: 8.7,
     status: "Disponível",
-    descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalhas cooperativas em um MMORPG de ação com morte permanente.",
-    imagem: rotmgImg
+    descricao: "Enfrente hordas de monstros, colete equipamentos raros e participe de batalhas cooperativas...",
+    imagem: realmImg
   },
   {
     id: 7,
-    nome: "7 Days to Die", 
-    categoria: "Survival / Horror", 
-    plataforma: "PC / Xbox / PS5", 
-    nota: 8.0,
+    nome: "7 Days to Die",
+    categoria: "Sobrevivência",
+    plataforma: "PC / PS5",
+    nota: 8.1,
     status: "Disponível",
-    descricao: "Um jogo de sobrevivência em mundo aberto.",
-    imagem: sevenDaysImg
-  },   
+    descricao: "Colete recursos, construa abrigos e sobreviva a hordas noturnas de infectados.",
+    imagem: daysImg
+  },
   {
     id: 8,
-    nome: "Neon White", 
-    categoria: "Arcade / Shooter", 
-    plataforma: "PC / Switch / PlayStation", 
+    nome: "Neon White",
+    categoria: "Arcade / Shooter",
+    plataforma: "PC / Xbox / PS5",
     nota: 8.4,
     status: "Disponível",
     descricao: "Um shooter rítmico frenético com uma trilha sonora synthwave empolgante.",
-    imagem: neonWhiteImg
+    imagem: neonImg
   }
 ];
