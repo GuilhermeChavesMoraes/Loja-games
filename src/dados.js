@@ -1,11 +1,11 @@
-// Importando as imagens para o Vite gerar os caminhos corretos de build
-import cyberpunkImg from "./assets/Cyberpunk.jpg"; // Atenção ao C maiúsculo
+
+import cyberpunkImg from "./assets/Cyberpunk.jpg"; 
 import ghostImg from "./assets/Ghost of Tsushima.jpg";
 import stellarisImg from "./assets/stellaris.jpg";
 import deadCellsImg from "./assets/Dead Cells.jpg";
 import forzaImg from "./assets/Forza Horizon 5.jpg";
 import realmImg from "./assets/Realm of the Mad God Exalt.jpg";
-import daysImg from "./assets/days.jpg"; // Ajustado para corresponder a "days.jpg" da imagem
+import daysImg from "./assets/days.jpg"; 
 import neonImg from "./assets/Neon White.jpg";
 
 export const gamesData = [
