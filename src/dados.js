@@ -67,7 +67,7 @@ export const gamesData = [
     nota: 8.0,
     status: "Disponível",
     descricao: "Um jogo de sobrevivência em mundo aberto.",
-    imagem: "../src/public/7days.jpg"
+    imagem: "../src/assets/days.jpg"
   },  
   {
     id: 8,
